@@ -1,0 +1,371 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color scheme with custom hex values */
+  --background: oklch(1 0 0); /* Pure white */
+  --foreground: oklch(0.35 0 0); /* #494949 - softer black text */
+  --card: oklch(0.99 0 0); /* Slightly off-white background */
+  --card-foreground: oklch(0.35 0 0); /* #494949 text on cards */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0 0);
+  --primary: oklch(0.35 0 0); /* #494949 for primary buttons */
+  --primary-foreground: oklch(0.98 0 0); /* White text on primary */
+  --secondary: oklch(0.7 0.15 200); /* #21C1EC - cyan blue for headings */
+  --secondary-foreground: oklch(0.98 0 0); /* White text on secondary */
+  --muted: oklch(0.95 0 0); /* Very light gray background */
+  --muted-foreground: oklch(0.5 0 0); /* Medium gray text */
+  --accent: oklch(0.6 0.2 320); /* #E82D94 - pink accent for highlights */
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.2 25); /* Red for errors */
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.9 0 0); /* Light border */
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.7 0.15 200); /* Cyan focus ring */
+  --chart-1: oklch(0.7 0.15 200); /* #21C1EC */
+  --chart-2: oklch(0.6 0.2 320); /* #E82D94 */
+  --chart-3: oklch(0.5 0.1 120); /* Green accent */
+  --chart-4: oklch(0.6 0.15 60); /* Orange accent */
+  --chart-5: oklch(0.4 0.1 280); /* Purple accent */
+  --radius: 0.625rem; /* Slightly smaller radius for modern look */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.35 0 0);
+  --sidebar-primary: oklch(0.7 0.15 200); /* #21C1EC */
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.95 0 0);
+  --sidebar-accent-foreground: oklch(0.35 0 0); /* #494949 */
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.7 0.15 200); /* #21C1EC */
+}
+
+.dark {
+  --background: oklch(0.15 0 0); /* Dark background */
+  --foreground: oklch(0.9 0 0); /* Light text */
+  --card: oklch(0.2 0 0); /* Dark card background */
+  --card-foreground: oklch(0.9 0 0); /* Light text on cards */
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.9 0 0);
+  --primary: oklch(0.7 0.15 200); /* #21C1EC for primary in dark mode */
+  --primary-foreground: oklch(0.15 0 0); /* Dark text on primary */
+  --secondary: oklch(0.8 0.15 200); /* Lighter cyan for headings */
+  --secondary-foreground: oklch(0.15 0 0); /* Dark text on secondary */
+  --muted: oklch(0.25 0 0); /* Dark muted background */
+  --muted-foreground: oklch(0.6 0 0); /* Medium gray text */
+  --accent: oklch(0.7 0.2 320); /* #E82D94 - pink accent */
+  --accent-foreground: oklch(0.15 0 0);
+  --destructive: oklch(0.6 0.2 25); /* Red for errors */
+  --destructive-foreground: oklch(0.9 0 0);
+  --border: oklch(0.3 0 0); /* Dark border */
+  --input: oklch(0.3 0 0);
+  --ring: oklch(0.7 0.15 200); /* Cyan focus ring */
+  --chart-1: oklch(0.8 0.15 200); /* Lighter cyan */
+  --chart-2: oklch(0.7 0.2 320); /* Pink */
+  --chart-3: oklch(0.6 0.1 120); /* Green */
+  --chart-4: oklch(0.7 0.15 60); /* Orange */
+  --chart-5: oklch(0.5 0.1 280); /* Purple */
+  --sidebar: oklch(0.2 0 0);
+  --sidebar-foreground: oklch(0.9 0 0);
+  --sidebar-primary: oklch(0.7 0.15 200); /* #21C1EC */
+  --sidebar-primary-foreground: oklch(0.15 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.9 0 0);
+  --sidebar-border: oklch(0.3 0 0);
+  --sidebar-ring: oklch(0.7 0.15 200); /* #21C1EC */
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom styles for Lake Shore branding */
+.hero-gradient {
+  background: linear-gradient(135deg, oklch(0.98 0 0) 0%, oklch(0.95 0 0) 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 16px 20px -12px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced button pop animations */
+.btn-pop {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-pop:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced navigation button hover */
+.nav-btn-pop {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn-pop:hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced CTA button animations */
+.cta-pop {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-pop:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.2), 0 12px 15px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Badge hover animations */
+.badge-pop {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge-pop:hover {
+  transform: translateY(-1px) scale(1.08);
+  box-shadow: 0 6px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Added scrolling animation for trusted by section */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* Updated glass highlight animation to be bigger and faster */
+@keyframes glass-move {
+  0% {
+    left: 0%;
+    width: 20%;
+  }
+  20% {
+    left: 20%;
+    width: 20%;
+  }
+  40% {
+    left: 40%;
+    width: 20%;
+  }
+  60% {
+    left: 60%;
+    width: 20%;
+  }
+  80% {
+    left: 80%;
+    width: 20%;
+  }
+  100% {
+    left: 0%;
+    width: 20%;
+  }
+}
+
+.glass-highlight {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%
+  );
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  /* Made animation faster - reduced from 10s to 6s */
+  animation: glass-move 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Dark mode adjustments for glass effect */
+.dark .glass-highlight {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile-optimized vertical movement for the How We Think glass highlight */
+@keyframes glass-move-vertical {
+  0% {
+    top: 0%;
+    height: 20%;
+  }
+  20% {
+    top: 20%;
+    height: 20%;
+  }
+  40% {
+    top: 40%;
+    height: 20%;
+  }
+  60% {
+    top: 60%;
+    height: 20%;
+  }
+  80% {
+    top: 80%;
+    height: 20%;
+  }
+  100% {
+    top: 0%;
+    height: 20%;
+  }
+}
+
+@media (max-width: 767px) {
+  .glass-highlight {
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      transparent 100%
+    );
+    animation: glass-move-vertical 6s ease-in-out infinite;
+  }
+
+  .dark .glass-highlight {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 20%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 80%,
+      transparent 100%
+    );
+  }
+}
+
+/* Shine hover effect for outcome cards */
+.shine-card {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.shine-card:hover {
+  background-image: linear-gradient(180deg, rgba(25, 90, 130, 0.85), rgba(39, 192, 239, 0.85));
+  box-shadow: 0 8px 30px rgba(39, 192, 239, 0.35);
+  transform: translateY(-2px);
+}
+.shine-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -75%;
+  height: 300%;
+  width: 45%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  opacity: 0;
+}
+.shine-card:hover::after {
+  animation: shine-sweep 900ms ease forwards;
+  opacity: 1;
+}
+
+/* Make card text readable on hover */
+.shine-card:hover [data-slot=card-title],
+.shine-card:hover [data-slot=card-description] {
+  color: #fff !important;
+}
+
+/* Subtle growth on hover for numbers/content/icons */
+.shine-card [data-slot=card-title],
+.shine-card [data-slot=card-description],
+.shine-card svg {
+  transition: transform 200ms ease, color 200ms ease;
+}
+.shine-card:hover [data-slot=card-title],
+.shine-card:hover [data-slot=card-description],
+.shine-card:hover svg {
+  transform: scale(1.06);
+}
+
+@keyframes shine-sweep {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
