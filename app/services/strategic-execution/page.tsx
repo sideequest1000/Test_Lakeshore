@@ -48,14 +48,14 @@ export default function StrategicExecutionPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="aspect-square max-w-md mx-auto">
+            <div className="relative -mx-4 sm:mx-0">
+              <div className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh]">
                 <Image
                   src="/Strat_Execution_Medallion.png"
                   alt="Strategic Execution Medallion"
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain"
+                  sizes="100vw"
+                  className="object-cover"
                   priority={false}
                 />
               </div>
