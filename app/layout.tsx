@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   description:
     "Strategic, unbiased, and objective advisory and delivery services to improve your organization's productivity and performance.",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({

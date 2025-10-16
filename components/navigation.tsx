@@ -23,7 +23,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/Logo.png"
+              src="/logo.png"
               alt="Lake Shore Associates Logo"
               width={48}
               height={48}
